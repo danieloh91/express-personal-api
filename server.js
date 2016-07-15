@@ -53,8 +53,13 @@ app.get('/api', function api_index(req, res) {
     base_url: "https://shrouded-brushlands-49491.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/something", description: "Collection of something"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data about me"},
+      {method: "GET", path: "/api/restaurants", description: "Database of all my favorite eateries"},
+      {method: "GET", path: "/api/restaurants/:id", description: "Shows info of a specific eatery"},
+      {method: "POST", path: "/api/restaurants", description: "Adds an eatery"},
+      {method: "PUT", path: "/api/restaurants/:id", description: "Updates info of a specific eatery"},
+      {method: "DELETE", path: "/api/restaurants/:id", description: "Deletes a specific eatery"}
+      // CHANGE ME
     ]
   });
 });
@@ -66,8 +71,8 @@ app.get('/api/profile', function api_profile(req, res) {
     name: 'Daniel Oh',
     github_link: 'https://github.com/danieloh91',
     github_profile_image: 'https://avatars2.githubusercontent.com/u/16109701?v=3&s=460',
-    current_city: 'Berkeley, CA'
-    
+    current_city: 'Berkeley, CA',
+    favorite_dishes: [{name: "sushi", cuisine: "Japanese"}, {name: "tacos", cuisine: "Mexican"}]
   });
 });
 
