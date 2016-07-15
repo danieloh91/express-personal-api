@@ -59,6 +59,18 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
+// get api profile
+app.get('/api/profile', function api_profile(req, res) {
+  // send all books as JSON response
+  res.json({
+    name: 'Daniel Oh',
+    github_link: 'https://github.com/danieloh91',
+    github_profile_image: 'https://avatars2.githubusercontent.com/u/16109701?v=3&s=460',
+    current_city: 'Berkeley, CA'
+    
+  });
+});
+
 /**********
  * SERVER *
  **********/
