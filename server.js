@@ -76,6 +76,18 @@ app.get('/api/profile', function api_profile(req, res) {
   });
 });
 
+// get all restaurants
+app.get('/api/restaurants', function api_restaurants(req, res) {
+  db.Restaurant.find(function (err, restaurants){
+    if (err) {
+      console.log("index error: " + err);
+    }
+    res.json(restaurants);
+  });
+
+});
+
+
 /**********
  * SERVER *
  **********/
