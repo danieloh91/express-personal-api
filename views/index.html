@@ -25,34 +25,34 @@
         <form class="form-inline" id="newRestaurantForm">
           <div class="form-group">
             <label for="title">Name</label>
-            <input type="text" class="form-control" name="title" placeholder="Restaurant Name">
+            <input type="text" class="form-control" name="title" placeholder="Restaurant Name" autofocus="">
           </div>
           <div class="form-group">
             <label for="title">Cuisine</label>
-            <input type="text" class="form-control" name="author" placeholder="Cuisine">
+            <input type="text" class="form-control" name="author" placeholder="i.e. Chinese">
           </div>
           <div class="form-group">
             <label for="title">Location</label>
-            <input type="text" class="form-control" name="author" placeholder="Location">
+            <input type="text" class="form-control" name="author" placeholder="Address">
           </div>
           <div class="form-group">
             <label for="title">Best Dish</label>
-            <input type="text" class="form-control" name="author" placeholder="best_dish">
+            <input type="text" class="form-control" name="author" placeholder="Dish Name">
           </div>
           <div class="form-group">
             <label for="title">Image URL</label>
-            <input type="text" class="form-control" name="author" placeholder="image_url">
+            <input type="text" class="form-control" name="author" placeholder="Paste Link">
           </div>
           <button type="submit" class="btn btn-default">Add Recommendation</button>
         </form>
         <div id='restaurantTarget'>
           <!-- handlebars template -->
-          <script id="restaurant-template" type="text/x-handlebars-template">
-            {{#each books}}
+          <script id="restaurants-template" type="text/x-handlebars-template">
+            {{#each restaurants}}
             <hr>
             <p>
-              <b>{{title}}</b>
-              by {{author.name}}
+              <b>{{name}}</b>
+              <!-- by {{author.name}} -->
               <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
             </p>
             {{/each}}

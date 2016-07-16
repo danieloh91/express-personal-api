@@ -17,12 +17,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-/************
- * DATABASE *
- ************/
-
-// var db = require('./models');
-
 /**********
  * ROUTES *
  **********/
@@ -84,7 +78,17 @@ app.get('/api/restaurants', function api_restaurants(req, res) {
     }
     res.json(restaurants);
   });
+});
 
+// get restaurant by Id
+app.get('/api/restaurants/:id', function api_onerestaurant(req, res) {
+  var id = req.params.id;
+  db.Restaurant.findOne({_id: id}, function (err, restaurant){
+    if (err) {
+      console.log("index error: " + err);
+    }
+    res.json(restaurant);
+  });
 });
 
 
