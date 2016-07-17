@@ -7,10 +7,6 @@ $(document).ready(function(){
 
   $restaurantsList = $('#restaurantTarget');
 
-  // compile handlebars template
-  var source = $('#resturants-template').html();
-  template = Handlebars.compile(source);
-
   $.ajax({
     method: 'GET',
     url: '/api/restaurants',
@@ -18,15 +14,18 @@ $(document).ready(function(){
     error: handleError
   });
 
-  $('#newRestaurantForm').on('submit', function(e) {
+  $("#newRestaurantForm").on("submit", function(e) {
     e.preventDefault();
+    console.log('hi');
     $.ajax({
       method: 'POST',
       url: '/api/restaurants',
       data: $(this).serialize(),
-      success: newResturantSuccess,
+      dataType: 'json',
+      success: newRestaurantSuccess,
       error: newRestaurantError
     });
+    return;
   });
 
   $restaurantsList.on('click', '.deleteBtn', function() {
@@ -42,11 +41,11 @@ $(document).ready(function(){
 
 // helper function to render all posts to view
 // note: we empty and re-render the collection each time our post data changes
-function render () {
+function render() {
   // empty existing posts from view
   $restaurantsList.empty();
 
-  // pass `allBooks` into the template function
+  // pass `allRestaurants` into the template function
   var restaurantsHtml = template({ restaurants: allRestaurants });
 
   // append html to the view
@@ -77,11 +76,11 @@ function deleteRestaurantSuccess(json) {
   var restaurant = json;
   var restaurantId = restaurant._id;
 
-  // find the book with the correct ID and remove it from our allBooks array
+  // find the restaurant the correct ID and remove it from our allRestaurants array
   for(var index = 0; index < allRestaurants.length; index++) {
     if(allRestaurants[index]._id === restaurantId) {
       allRestaurants.splice(index, 1);
-      break;  // we found our book - no reason to keep searching (this is why we didn't use forEach)
+      break;
     }
   }
   render();

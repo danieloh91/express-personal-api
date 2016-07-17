@@ -72,7 +72,7 @@ app.get('/api/profile', function api_profile(req, res) {
 
 // get all restaurants
 app.get('/api/restaurants', function api_restaurants(req, res) {
-  db.Restaurant.find(function (err, restaurants){
+  db.Restaurant.find(function (err, restaurants) {
     if (err) {
       console.log("index error: " + err);
     }
@@ -83,7 +83,18 @@ app.get('/api/restaurants', function api_restaurants(req, res) {
 // get restaurant by Id
 app.get('/api/restaurants/:id', function api_onerestaurant(req, res) {
   var id = req.params.id;
-  db.Restaurant.findOne({_id: id}, function (err, restaurant){
+  db.Restaurant.findOne({_id: id}, function (err, restaurant) {
+    if (err) {
+      console.log("index error: " + err);
+    }
+    res.json(restaurant);
+  });
+});
+
+// create new restaurant
+app.post('/api/restaurants', function create_newrestaurant(req, res) {
+  db.Restaurant.create(req.body, function(err, restaurant){
+    console.log(restaurant);
     if (err) {
       console.log("index error: " + err);
     }

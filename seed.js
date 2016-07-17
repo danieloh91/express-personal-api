@@ -22,11 +22,12 @@ var restaurant_list = [
 
 
 db.Restaurant.create(restaurant_list, function(err, restaurant){
+  console.log(restaurant);
   if (err){
     console.log("Error:", err);
     return;
   }
 
-  console.log("Created new restaurant", restaurant._id);
+  console.log("Created new restaurant", restaurant[0]._id);
   process.exit(); // we're all done! Exit the program.
 });
