@@ -12,6 +12,7 @@
   <!-- VENDOR SCRIPTS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
 
   <!-- APPLICATION SCRIPTS -->
   <script src="scripts/app.js"></script>
@@ -21,41 +22,53 @@
   <div class="container">
     <h1 class="text-center">The Munchies</h1>
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <form class="form-inline" id="newRestaurantForm">
-          <div class="form-group">
-            <label for="title">Name</label>
-            <input type="text" class="form-control" name="name" placeholder="Restaurant Name" autofocus="">
-          </div>
-          <div class="form-group">
-            <label for="title">Cuisine</label>
-            <input type="text" class="form-control" name="cuisine" placeholder="i.e. Chinese">
-          </div>
-          <div class="form-group">
-            <label for="title">Location</label>
-            <input type="text" class="form-control" name="location" placeholder="Address">
-          </div>
-          <div class="form-group">
-            <label for="title">Best Dish</label>
-            <input type="text" class="form-control" name="best_dish" placeholder="Dish Name">
-          </div>
-          <div class="form-group">
-            <label for="title">Image URL</label>
-            <input type="text" class="form-control" name="image_url" placeholder="Paste Link">
-          </div>
-          <button type="submit" class="btn btn-default">Add Recommendation</button>
-        </form>
+      <div class="col-md-10 col-md-offset-1">
+        <!-- <div id="loginmodal" style="display:none;"> -->
+          <form class="form-inline" id="newRestaurantForm">
+            <div class="form-group">
+              <label for="title">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Restaurant Name" autofocus="">
+            </div>
+            <div class="form-group">
+              <label for="title">Cuisine</label>
+              <input type="text" class="form-control" name="cuisine" placeholder="i.e. Chinese">
+            </div>
+            <div class="form-group">
+              <label for="title">Location</label>
+              <input type="text" class="form-control" name="location" placeholder="Address">
+            </div>
+            <div class="form-group">
+              <label for="title">Best Dish</label>
+              <input type="text" class="form-control" name="best_dish" placeholder="Dish Name">
+            </div>
+            <div class="form-group">
+              <label for="title">Image URL</label>
+              <input type="text" class="form-control" name="image_url" placeholder="Paste Link">
+            </div>
+            <button type="submit" class="btn btn-default">Add Recommendation</button>
+          </form>
+        <!-- </div> -->
         <div id='restaurantTarget'>
           <!-- handlebars template -->
           <script id="restaurants-template" type="text/x-handlebars-template">
             {{#each restaurants}}
             <hr>
-            <p>
-              <b>{{name}}</b>
-              <b>{{cuisine}}</b>
-              <!-- by {{author.name}} -->
-              <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
-            </p>
+            <div class='row'>
+              <div class='col-md-2'>
+                <img class='picSize' src='{{image_url}}'>
+              </div>
+              <div class='col-md-8'>
+                <h2>{{name}}</h2>
+                <p>
+                  <b>Cuisine: {{cuisine}}</b><br>
+                  <b>Location: {{location}}</b><br>
+                  <b>Best Dish: {{best_dish}}</b><br>
+                </p>
+              </div>
+              <div class='col-md-2'>
+                <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
+              </div>
+            </div>
             {{/each}}
           </script>
         </div>
