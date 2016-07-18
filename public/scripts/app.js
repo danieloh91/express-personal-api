@@ -11,6 +11,15 @@ $(document).ready(function(){
   var source = $('#restaurants-template').html();
   template = Handlebars.compile(source);
 
+  $(".btn-input").click(function() {
+    $(".btn-input").hide();
+    $("#newRestaurantForm").show();
+    $(".btn-default").click(function() {
+     $("#newRestaurantForm").hide();
+     $(".btn-input").show();
+    });
+ });
+
   $.ajax({
     method: 'GET',
     url: '/api/restaurants',

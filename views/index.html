@@ -12,8 +12,6 @@
   <!-- VENDOR SCRIPTS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-  <script src="jquery.modal.js" type="text/javascript" charset="utf-8"></script> 
-
   <!-- APPLICATION SCRIPTS -->
   <script src="scripts/app.js"></script>
 
@@ -23,8 +21,9 @@
     <h1 class="text-center">The Best Eateries</h1>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <!-- <div id="loginmodal" style="display:none;"> -->
-          <form class="form-inline" id="newRestaurantForm">
+        <button type="submit" name="button" class="btn btn-input">Make A Recommendation!</button>
+        <!-- <div id="formModal" style="display:none;"> -->
+          <form class="form-inline" id="newRestaurantForm" display="none">
             <div class="form-group">
               <label for="title">Name</label>
               <input type="text" class="form-control" name="name" placeholder="Restaurant Name" autofocus="">
@@ -37,6 +36,7 @@
               <label for="title">Location</label>
               <input type="text" class="form-control" name="location" placeholder="City">
             </div>
+            <br>
             <div class="form-group">
               <label for="title">Best Dish</label>
               <input type="text" class="form-control" name="best_dish" placeholder="Dish Name">
@@ -45,7 +45,7 @@
               <label for="title">Image URL</label>
               <input type="text" class="form-control" name="image_url" placeholder="Paste Link">
             </div>
-            <button type="submit" class="btn btn-default">Add Recommendation</button>
+            <button type="submit" class="btn btn-default">Submit!</button>
           </form>
         <!-- </div> -->
         <div id='restaurantTarget'>
