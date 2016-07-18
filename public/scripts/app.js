@@ -7,6 +7,10 @@ $(document).ready(function(){
 
   $restaurantsList = $('#restaurantTarget');
 
+  // compile handlebars template
+  var source = $('#restaurants-template').html();
+  template = Handlebars.compile(source);
+
   $.ajax({
     method: 'GET',
     url: '/api/restaurants',
@@ -31,7 +35,7 @@ $(document).ready(function(){
   $restaurantsList.on('click', '.deleteBtn', function() {
     $.ajax({
       method: 'DELETE',
-      url: '/api/restaurant/'+$(this).attr('data-id'),
+      url: '/api/restaurants/'+$(this).attr('data-id'),
       success: deleteRestaurantSuccess,
       error: deleteRestaurantError
     });

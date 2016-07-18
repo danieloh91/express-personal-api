@@ -74,7 +74,7 @@ app.get('/api/profile', function api_profile(req, res) {
 app.get('/api/restaurants', function api_restaurants(req, res) {
   db.Restaurant.find(function (err, restaurants) {
     if (err) {
-      console.log("index error: " + err);
+      res.sendStatus(404);
     }
     res.json(restaurants);
   });
@@ -85,7 +85,7 @@ app.get('/api/restaurants/:id', function api_onerestaurant(req, res) {
   var id = req.params.id;
   db.Restaurant.findOne({_id: id}, function (err, restaurant) {
     if (err) {
-      console.log("index error: " + err);
+      res.sendStatus(404);
     }
     res.json(restaurant);
   });
@@ -93,12 +93,34 @@ app.get('/api/restaurants/:id', function api_onerestaurant(req, res) {
 
 // create new restaurant
 app.post('/api/restaurants', function create_newrestaurant(req, res) {
-  db.Restaurant.create(req.body, function(err, restaurant){
-    console.log(restaurant);
+  var newRestaurant = db.Restaurant({
+    name: req.body.name,
+    cuisine: req.body.cuisine,
+    location: req.body.location,
+    best_dish: req.body.best_dish,
+    image_url: req.body.image_url
+  });
+  console.log(newRestaurant);
+  newRestaurant.save(function(err, restaurant) {
     if (err) {
-      console.log("index error: " + err);
+      res.sendStatus(404);
     }
     res.json(restaurant);
+  });
+  // db.Restaurant.create(req.body, function(err, restaurant){
+  //   console.log(restaurant);
+  //   if (err) {
+  //     res.sendStatus(404);
+  //   }
+  //   res.json(restaurant);
+  // });
+});
+
+// delete a restaurant post
+app.delete('/api/restaurants/:id', function delete_restaurant(req, res) {
+  var restaurantId = req.params._id;
+  db.Book.findOneAndRemove({_id: restaurantId}, function (err, deleted) {
+    res.json(deleted);
   });
 });
 
