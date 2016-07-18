@@ -50,12 +50,14 @@ h2 {
   margin-top: 50px;
 }
 
-.btn-default {
-  margin: 10px 10px;
+.enter {
+  margin: 10px 10px 0 10px;
+  background: rgba(0, 200, 100, 0.3);
 }
 
 .escape {
-  margin: 10px 10px;
+  margin: 10px 10px 0 10px;
+  background: rgba(200, 0, 100, 0.3);
 }
 
 .api {
