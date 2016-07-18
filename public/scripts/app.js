@@ -15,10 +15,14 @@ $(document).ready(function(){
     $(".btn-input").hide();
     $("#newRestaurantForm").show();
     $(".btn-default").click(function() {
-     $("#newRestaurantForm").hide();
-     $(".btn-input").show();
+      $("#newRestaurantForm").hide();
+      $(".btn-input").show();
     });
- });
+    $(".escape").click(function() {
+      $("#newRestaurantForm").hide();
+      $(".btn-input").show();
+    });
+  });
 
   $.ajax({
     method: 'GET',
