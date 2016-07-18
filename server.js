@@ -51,7 +51,7 @@ app.get('/api', function api_index(req, res) {
       {method: "GET", path: "/api/restaurants", description: "Database of all my favorite eateries"},
       {method: "GET", path: "/api/restaurants/:id", description: "Shows info of a specific eatery"},
       {method: "POST", path: "/api/restaurants", description: "Adds an eatery"},
-      {method: "PUT", path: "/api/restaurants/:id", description: "Updates info of a specific eatery"},
+      {method: "PUT", path: "/api/restaurants/:id", description: "Updates info of a specific eatery (currently under construction)"},
       {method: "DELETE", path: "/api/restaurants/:id", description: "Deletes a specific eatery"}
       // CHANGE ME
     ]
@@ -94,7 +94,6 @@ app.get('/api/restaurants/:id', function api_onerestaurant(req, res) {
 // create new restaurant
 app.post('/api/restaurants', function create_newrestaurant(req, res) {
   db.Restaurant.create(req.body, function(err, restaurant){
-    console.log(restaurant);
     if (err) {
       res.sendStatus(404);
     }
@@ -111,6 +110,11 @@ app.delete('/api/restaurants/:id', function delete_restaurant(req, res) {
     }
     res.json(deleted);
   });
+});
+
+// edit a restaurant post
+app.put('/api/restaurants/:id', function edit_restaurant(req, res) {
+
 });
 
 

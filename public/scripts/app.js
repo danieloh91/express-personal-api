@@ -29,7 +29,6 @@ $(document).ready(function(){
 
   $("#newRestaurantForm").on("submit", function(e) {
     e.preventDefault();
-    console.log('hi');
     $.ajax({
       method: 'POST',
       url: '/api/restaurants',
@@ -63,7 +62,6 @@ function handleSuccess(json) {
 }
 
 function handleError(e) {
-  console.log('uh oh');
   $('#restaurantTarget').text('Failed to load restaurants, is the server working?');
 }
 

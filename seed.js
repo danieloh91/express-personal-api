@@ -24,17 +24,21 @@ var restaurant_list = [
     location: 'Albany, CA',
     best_dish: 'Five Spice Hot and Spicy Pork Shoulder',
     image_url: 'http://s3-media2.fl.yelpcdn.com/bphoto/UBBib7IsSKbObwCdlU7ToA/o.jpg'
+  },
+  {
+    name: 'PyeongChang Tofu House',
+    cuisine: 'Korean',
+    location: 'Oakland, CA',
+    best_dish: 'Spicy Soft Tofu Soup',
+    image_url: 'http://s3-media1.fl.yelpcdn.com/bphoto/rHQRToSORI3hrYdYTEEnFg/o.jpg'
   }
 ];
 
 
 db.Restaurant.create(restaurant_list, function(err, restaurant){
-  console.log(restaurant);
   if (err){
-    console.log("Error:", err);
+    res.sendStatus(404);
     return;
   }
-
-  console.log("Created new restaurant", restaurant[0]._id);
   process.exit(); // we're all done! Exit the program.
 });
