@@ -1,33 +1,61 @@
 body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
-  background-color: rgb(220, 170, 0);; /* Sanity Check! */
+  background-color: rgb(255, 255, 255);; /* Sanity Check! */
 }
 
 h1 {
   margin-top: 100px;
   text-align: center;
+  font-size: 80px;
+  font-family: inherit;
+  font-style: italic;
 }
 
-.form-group {
-  border: 1px solid black;
+h2 {
+  font-weight: bold;
 }
+
+/*.form-group {
+  border: 1px solid black;
+}*/
 
 .picSize {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 .col-md-8 {
   text-align: center;
+  font-family: fantasy;
 }
 
-.col-md-2 {
-  float: left;
+.picSize {
+    background: url('http://goo.gl/9CVGfc');
+    border-radius: 150px;
+    width: 150px;
+    height: 150px;
+    background-size: 280px;
+    background-position: right;
+    border: 1px solid rgba(200, 100, 100, 0.5);;
 }
+
+.deleteBtn {
+  position: absolute;
+  top: 50%;
+  margin-top: 50px;
+}
+
+/*#restaurantTarget {
+  background: rgba(255, 255, 255, 0.5);
+}*/
 
 form {
   margin-left: auto;
+}
+
+footer {
+  height: 150px;
 }
 
 /*#w {

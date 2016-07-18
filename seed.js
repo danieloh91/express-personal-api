@@ -8,8 +8,8 @@ var restaurant_list = [
     name: 'Tacos Sinaloa',
     cuisine: 'Mexican',
     location: 'Oakland, CA',
-    best_dish: 'Al Pastor tacos',
-    image_url: 'http://s3-media2.fl.yelpcdn.com/bphoto/tWVvdDkKPA6nLADoRGP_OQ/o.jpg'
+    best_dish: 'Al Pastor Tacos',
+    image_url: 'http://s3-media4.fl.yelpcdn.com/bphoto/94H5vus5QpCEiOVh0_rOyg/o.jpg'
   },
   {
     name: 'Sugarfish',
@@ -17,6 +17,13 @@ var restaurant_list = [
     location: 'Los Angeles, CA',
     best_dish: 'Uni Nigiri',
     image_url: 'http://sugarfishsushi.com/wp-content/uploads/2012/04/sugarFISH_Takeout.jpg'
+  },
+  {
+    name: 'China Village',
+    cuisine: 'Chinese',
+    location: 'Albany, CA',
+    best_dish: 'Five Spice Hot and Spicy Pork Shoulder',
+    image_url: 'http://s3-media2.fl.yelpcdn.com/bphoto/UBBib7IsSKbObwCdlU7ToA/o.jpg'
   }
 ];
 

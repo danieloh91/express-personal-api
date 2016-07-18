@@ -40,19 +40,11 @@ $(document).ready(function(){
       error: deleteRestaurantError
     });
   });
-
 });
 
-// helper function to render all posts to view
-// note: we empty and re-render the collection each time our post data changes
 function render() {
-  // empty existing posts from view
   $restaurantsList.empty();
-
-  // pass `allRestaurants` into the template function
   var restaurantsHtml = template({ restaurants: allRestaurants });
-
-  // append html to the view
   $restaurantsList.append(restaurantsHtml);
 }
 
@@ -73,14 +65,12 @@ function newRestaurantSuccess(json) {
 }
 
 function newRestaurantError() {
-
+  console.log('newRestaurantError');
 }
 
 function deleteRestaurantSuccess(json) {
   var restaurant = json;
   var restaurantId = restaurant._id;
-
-  // find the restaurant the correct ID and remove it from our allRestaurants array
   for(var index = 0; index < allRestaurants.length; index++) {
     if(allRestaurants[index]._id === restaurantId) {
       allRestaurants.splice(index, 1);
@@ -91,50 +81,5 @@ function deleteRestaurantSuccess(json) {
 }
 
 function deleteRestaurantError() {
-
+  console.log('deleteRestaurantError');
 }
-
-$(function(){
-  $.fn.extend({
-    leanModal:function(options){
-      var defaults={top:100,overlay:0.5,closeButton:null
-      };
-      var overlay=$("<div id='lean_overlay'></div>");
-      $("body").append(overlay);options=$.extend(defaults,options);
-      return this.each(function(){
-        var o=options;
-        $(this).click(function(e){
-          var modal_id=$(this).attr("href");
-          $("#lean_overlay").click(function(){
-            close_modal(modal_id);
-          });
-          $(o.closeButton).click(function(){
-            close_modal(modal_id);
-          });
-          var modal_height=$(modal_id).outerHeight();
-          var modal_width=$(modal_id).outerWidth();
-          $("#lean_overlay").css({
-            "display":"block",opacity:0
-          });
-          $("#lean_overlay").fadeTo(200,o.overlay);
-          $(modal_id).css({
-            "display":"block",
-            "position":"fixed",
-            "opacity":0,
-            "z-index":11000,
-            "left":50+"%",
-            "margin-left":-(modal_width/2)+"px","top":o.top+"px"
-          });
-          $(modal_id).fadeTo(200,1);
-          e.preventDefault();
-        });
-      });
-      function close_modal(modal_id){
-        $("#lean_overlay").fadeOut(200);
-        $(modal_id).css({
-          "display":"none"
-        });
-      }
-    }
-  });
-});

@@ -12,17 +12,17 @@
   <!-- VENDOR SCRIPTS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-  <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+  <script src="jquery.modal.js" type="text/javascript" charset="utf-8"></script> 
 
   <!-- APPLICATION SCRIPTS -->
   <script src="scripts/app.js"></script>
 
 </head>
 <body>
-  <div class="container">
-    <h1 class="text-center">The Munchies</h1>
+  <div class="container-fluid">
+    <h1 class="text-center">The Best Eateries</h1>
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-8 col-md-offset-2">
         <!-- <div id="loginmodal" style="display:none;"> -->
           <form class="form-inline" id="newRestaurantForm">
             <div class="form-group">
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
               <label for="title">Location</label>
-              <input type="text" class="form-control" name="location" placeholder="Address">
+              <input type="text" class="form-control" name="location" placeholder="City">
             </div>
             <div class="form-group">
               <label for="title">Best Dish</label>
@@ -54,10 +54,10 @@
             {{#each restaurants}}
             <hr>
             <div class='row'>
-              <div class='col-md-2'>
+              <div class='col-md-3'>
                 <img class='picSize' src='{{image_url}}'>
               </div>
-              <div class='col-md-8'>
+              <div class='col-md-6'>
                 <h2>{{name}}</h2>
                 <p>
                   <b>Cuisine: {{cuisine}}</b><br>
@@ -65,7 +65,7 @@
                   <b>Best Dish: {{best_dish}}</b><br>
                 </p>
               </div>
-              <div class='col-md-2'>
+              <div class='col-md-3'>
                 <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
               </div>
             </div>
@@ -75,5 +75,6 @@
       </div>
     </div>
   </div>
+  <footer></footer>
 </body>
 </html>
