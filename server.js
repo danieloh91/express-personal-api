@@ -93,33 +93,22 @@ app.get('/api/restaurants/:id', function api_onerestaurant(req, res) {
 
 // create new restaurant
 app.post('/api/restaurants', function create_newrestaurant(req, res) {
-  var newRestaurant = db.Restaurant({
-    name: req.body.name,
-    cuisine: req.body.cuisine,
-    location: req.body.location,
-    best_dish: req.body.best_dish,
-    image_url: req.body.image_url
-  });
-  console.log(newRestaurant);
-  newRestaurant.save(function(err, restaurant) {
+  db.Restaurant.create(req.body, function(err, restaurant){
+    console.log(restaurant);
     if (err) {
       res.sendStatus(404);
     }
     res.json(restaurant);
   });
-  // db.Restaurant.create(req.body, function(err, restaurant){
-  //   console.log(restaurant);
-  //   if (err) {
-  //     res.sendStatus(404);
-  //   }
-  //   res.json(restaurant);
-  // });
 });
 
 // delete a restaurant post
 app.delete('/api/restaurants/:id', function delete_restaurant(req, res) {
-  var restaurantId = req.params._id;
-  db.Book.findOneAndRemove({_id: restaurantId}, function (err, deleted) {
+  var restaurantId = req.params.id;
+  db.Restaurant.findOneAndRemove({_id: restaurantId}, function (err, deleted) {
+    if (err) {
+      res.sendStatus(404);
+    }
     res.json(deleted);
   });
 });
